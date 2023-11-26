@@ -7,15 +7,6 @@ services:
     ports:
       - "5000:5000"
 
-version: '3.0'
-
-services:
-  web:
-    build: .
-    image: study2895/flask:3.0
-    ports:
-      - "5000:5000"
-
 build_tag_push:
   image: docker:latest
   command: >
