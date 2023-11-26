@@ -13,10 +13,17 @@ pipeline {
         stage('Prepare') {
             steps {
                 script {
+                    def customFolder = 'testfolder'
                     dir('/var/jenkins_home/workspace') {
-                        git url: 'https://github.com/CSID-DGU/2023-2-OSSPrac-Raccoon-11.git',
-                            branch: 'main',
-                            credentialsId: 'github'
+                        if (!fileExists(customFolder)) {
+                            sh "mkdir ${customFolder}"
+                        }
+
+                        dir("${customFolder}") {
+                            git url: 'https://github.com/CSID-DGU/2023-2-OSSPrac-Raccoon-11.git',
+                                branch: 'main',
+                                credentialsId: 'github'
+                        }
                     }
                 }
             }
