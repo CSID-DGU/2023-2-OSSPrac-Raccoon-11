@@ -19,7 +19,7 @@ services:
       /bin/sh -c '
         docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD" &&
         docker build -t $DOCKER_HUB_REPO:3.0 . &&
-        docker tag $DOCKER_HUB_REPO:3.0 $DOCKER_HUB_REPO:latest &&
+        docker tag $DOCKER_HUB_REPO:3.0 $DOCKER_HUB_REPO:challenge &&
         docker push $DOCKER_HUB_REPO:3.0 &&
-        docker push $DOCKER_HUB_REPO:latest
+        docker push $DOCKER_HUB_REPO:challenge
       '
