@@ -12,8 +12,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DOCKER_HUB_USERNAME=여러분의_유저명
-      - DOCKER_HUB_PASSWORD=여러분의_비밀번호
+      - DOCKER_HUB_USERNAME=study2895
+      - DOCKER_HUB_PASSWORD=dckr_pat_WJTdWjYJSShZk1Q3w5fkGTgMSaI
       - DOCKER_HUB_REPO=study2895/flask
     command: >
       /bin/sh -c '
