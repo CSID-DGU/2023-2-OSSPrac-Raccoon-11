@@ -7,11 +7,19 @@ services:
     ports:
       - "5000:5000"
 
-build_tag_push:
-  image: docker:latest
-  command: >
-    sh -c '
-      docker login &&
-      docker build -t study2895/flask:challenge . &&
-      docker push study2895/flask:challenge
-    '
+  push-to-docker-hub:
+    image: docker:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_HUB_USERNAME=여러분의_유저명
+      - DOCKER_HUB_PASSWORD=여러분의_비밀번호
+      - DOCKER_HUB_REPO=study2895/flask
+    command: >
+      /bin/sh -c '
+        docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD" &&
+        docker build -t $DOCKER_HUB_REPO:3.0 . &&
+        docker tag $DOCKER_HUB_REPO:3.0 $DOCKER_HUB_REPO:latest &&
+        docker push $DOCKER_HUB_REPO:3.0 &&
+        docker push $DOCKER_HUB_REPO:latest
+      '
