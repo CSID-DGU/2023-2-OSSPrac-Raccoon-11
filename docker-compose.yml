@@ -7,7 +7,7 @@ services:
     ports:
       - "5000:5000"
 
-  push-to-docker-hub:
+  challenge:
     image: docker:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
