@@ -21,7 +21,7 @@ pipeline {
 
                         dir("${customFolder}") {
                             git url: 'https://github.com/CSID-DGU/2023-2-OSSPrac-Raccoon-11.git',
-                                branch: 'main',
+                                branch: 'test',
                                 credentialsId: 'github'
                         }
                     }
@@ -33,7 +33,7 @@ pipeline {
         stage('Build') {
             
             steps {
-                dir('/var/jenkins_home/workspace/hw6_c'){
+                dir('/var/jenkins_home/workspace/testfolder'){
                     sh 'docker compose build web'
                 }
            }
