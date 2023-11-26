@@ -13,10 +13,12 @@ pipeline {
         stage('Prepare') {
 	 agent any 
 	
-            steps {							
-		git url : 'https://github.com/CSID-DGU/2023-2-OSSPrac-Raccoon-11.git',
-						branch : 'main',
-						credentialsId: 'github'
+            steps {
+                def gitRepoDir = '/var/jenkins_home/workspace/hw6_c'        
+
+                dir(gitRepoDir) {
+                    checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/CSID-DGU/2023-2-OSSPrac-Raccoon-11.git']]])
+                }
             }
         }
 
