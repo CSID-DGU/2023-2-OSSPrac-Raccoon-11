@@ -13,7 +13,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DOCKER_HUB_USERNAME=study2895
-      - DOCKER_HUB_PASSWORD=dckr_pat_WJTdWjYJSShZk1Q3w5fkGTgMSaI
+      - DOCKER_HUB_PASSWORD=password
       - DOCKER_HUB_REPO=study2895/flask
     command: >
       /bin/sh -c '
